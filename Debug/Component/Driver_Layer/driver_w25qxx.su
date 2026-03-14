@@ -1,0 +1,8 @@
+../Component/Driver_Layer/driver_w25qxx.c:11:6:SPI1_Init	32	static
+../Component/Driver_Layer/driver_w25qxx.c:30:10:SPI_FLASH_ReadID	16	static
+../Component/Driver_Layer/driver_w25qxx.c:50:6:SPI_FLASH_WriteEnable	16	static
+../Component/Driver_Layer/driver_w25qxx.c:62:6:SPI_FLASH_SectorErase	24	static
+../Component/Driver_Layer/driver_w25qxx.c:85:6:SPI_FLASH_WaitForWriteEnd	16	static
+../Component/Driver_Layer/driver_w25qxx.c:104:6:SPI_FLASH_PageWrite	32	static
+../Component/Driver_Layer/driver_w25qxx.c:132:6:SPI_FLASH_BufferWrite	32	static
+../Component/Driver_Layer/driver_w25qxx.c:206:6:SPI_FLASH_BufferRead	32	static

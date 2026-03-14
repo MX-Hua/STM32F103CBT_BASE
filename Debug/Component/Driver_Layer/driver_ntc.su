@@ -1,0 +1,7 @@
+../Component/Driver_Layer/driver_ntc.c:42:6:NTC_Init	32	static
+../Component/Driver_Layer/driver_ntc.c:75:10:NTC_ReadRawADC	24	static
+../Component/Driver_Layer/driver_ntc.c:107:7:NTC_GetVoltage	16	static
+../Component/Driver_Layer/driver_ntc.c:124:7:NTC_GetResistance	32	static
+../Component/Driver_Layer/driver_ntc.c:160:7:NTC_CalculateTemperature	24	static
+../Component/Driver_Layer/driver_ntc.c:195:14:NTC_CalculateByLookup	48	static
+../Component/Driver_Layer/driver_ntc.c:231:7:NTC_ReadTemperature	24	static

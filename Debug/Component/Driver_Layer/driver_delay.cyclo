@@ -1,0 +1,2 @@
+../Component/Driver_Layer/driver_delay.c:16:6:delay_us	2
+../Component/Driver_Layer/driver_delay.c:37:6:delay_ms	2

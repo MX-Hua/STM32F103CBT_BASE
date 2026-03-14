@@ -1,0 +1,4 @@
+../Component/Driver_Layer/driver_eeprom.c:18:6:EEPROM_WriteByte	32	static
+../Component/Driver_Layer/driver_eeprom.c:77:6:EEPROM_ReadByte	32	static
+../Component/Driver_Layer/driver_eeprom.c:138:6:EEPROM_Write_NBytes	24	static
+../Component/Driver_Layer/driver_eeprom.c:160:6:EEPROM_Read_NBytes	24	static

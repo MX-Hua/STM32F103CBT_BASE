@@ -21,6 +21,7 @@
 #include "driver_crc.h"
 #include "driver_iic.h"
 #include "driver_w25qxx.h"
+#include "driver_rs485.h"
 
 #include "iwdg.h"
 #include "main.h"
@@ -42,7 +43,7 @@ uint32_t timeout_ms=2000;
 
 uint32_t uid[3]={0};
 uint8_t ruid[12]={0};
-float Temperature;
+
 NTC_Sensor ntc_sensor;
 
 
@@ -56,9 +57,14 @@ uint8_t R_Data [5]={0};
 
 
 
-
+extern void APP_RGB_Task(void);
 extern void APP_W25Qxx_Task(void);
-
+extern void APP_RS485_Task(void);
+extern void APP_NTC_Task(void);
+extern void APP_Internal_Temperature(void);
+extern void APP_Get_UID(void);
+extern void APP_DMA_Task(void);
+extern void APP_EEPROM_Task(void);
 
 // 传输完成回调
 void HAL_DMA_XferCpltCallback(DMA_HandleTypeDef *hdma)
@@ -81,11 +87,9 @@ void App_User_Task_Init(void)
 	Driver_ADC_Temperature_Init();
 	I2C_Init();
 	SPI1_Init();
+	RS485_Init();
 
 
-
-	Get_HAL_UID(uid);
-	Read_UID(ruid);
 
 	CRC8_C=Driver_CRC8_Calculate(Buffdata,13);
 	CRC8_T=Driver_CRC8_CalculateFast(Buffdata,13);
@@ -110,11 +114,11 @@ void App_User_Task_Init(void)
 
 	}
 
+	//EEPROM
 	uint16_t num=8;
 	EEPROM_Write_NBytes(0,&IICBuffdata[0],num);
 
 	//SPI
-
 	APP_W25Qxx_Task();
 
 
@@ -127,34 +131,91 @@ void App_User_Task_Init(void)
 void App_User_Task(void)
 {
 
-	//Temperature=NTC_ReadTemperature(&ntc_sensor);
-	//Temperature=Driver_ADC_Temperature_GetValue();
-	//uart_printf("NTC Temp:%0.2f\r\n",Temperature);
-	//uart_printf("\r\nUID:0x%08X-0x%08X-0x%08X\r\n",uid[0],uid[1],uid[2]);
-	//uart_printf("RUID:");
+	//NTC读温度
+	//APP_NTC_Task();
+
+	//读mcu内部温度
+	//APP_Internal_Temperature();
+
+	//获取mcu的uid
+	//APP_Get_UID();
+
+	//DMA 内存到内存
+	//APP_DMA_Task();
+
+	//EEPROM
+	//APP_EEPROM_Task();
+
+
+	//看门狗 如果不用，记得在main函数里要关闭，不然1s不喂狗 会重启
+	//HAL_IWDG_Refresh(&hiwdg);
+
+	//LED
+	Led_Toggle();
+
+	//RGB
+	APP_RGB_Task();
+
+	//RS485
+	APP_RS485_Task();
+
+}
+
+//NTC读温度试任务
+void APP_NTC_Task(void)
+{
+	float Temperature;
+	Temperature=NTC_ReadTemperature(&ntc_sensor);
+	uart_printf("NTC Temp:%0.2f\r\n",Temperature);
+}
+
+//读单片机内部温度测试任务
+void APP_Internal_Temperature(void)
+{
+	float Temperature;
+	Temperature=Driver_ADC_Temperature_GetValue();
+	uart_printf("NTC Temp:%0.2f\r\n",Temperature);
+}
+
+//读单片机内部UID测试任务
+void APP_Get_UID(void)
+{
+	Get_HAL_UID(uid);
+	Read_UID(ruid);
+	uart_printf("\r\nUID:0x%08X-0x%08X-0x%08X\r\n",uid[0],uid[1],uid[2]);
+	uart_printf("RUID:");
 	//uart_printf("data:%d\r\n",*uid++);
 
-//	for(int i=0;i<0xff;i++)
-//	{
-//		if(Rx_Dma_Buff[i]!=Tx_Dma_Buff[i])
-//		{
-//			uart_printf("DMA传输失败！%d\r\n",i);
-//			break;
-//		}
-//		if(i==0xfe)
-//		{
-//			uart_printf("DMA传输成功！\r\n");
-//		}
-//	}
-//
-//	if(CRC8_C==CRC8_T)
-//	{
-//		uart_printf("CRC8:\r\n%d\r\n",CRC8_C);
-//	}
+}
+
+//DMA 内存到内存 测试任务
+void APP_DMA_Task(void)
+{
+	for(int i=0;i<0xff;i++)
+	{
+		if(Rx_Dma_Buff[i]!=Tx_Dma_Buff[i])
+		{
+			uart_printf("DMA传输失败！%d\r\n",i);
+			break;
+		}
+		if(i==0xfe)
+		{
+			uart_printf("DMA传输成功！\r\n");
+		}
+	}
+
+}
+
+//EMMPROM 测试任务
+void APP_EEPROM_Task(void)
+{
+	EEPROM_Read_NBytes(0,&IICRBuffdata[0],8);
+}
 
 
-
-
+//rgb灯测试任务
+void APP_RGB_Task(void)
+{
 	App_Delay(500);
 	rgb_show(1,RED);
 
@@ -167,17 +228,10 @@ void App_User_Task(void)
 	App_Delay(500);
 	rgb_show(1,BLUE);
 
-
-
-
-	Led_Toggle();
-	//EEPROM_Read_NBytes(0,&IICRBuffdata[0],8);
-
-	//HAL_IWDG_Refresh(&hiwdg);
-
 }
 
 
+//W25qxx测试任务
 void APP_W25Qxx_Task(void)
 {
 	uint32_t id=SPI_FLASH_ReadID();
@@ -186,8 +240,21 @@ void APP_W25Qxx_Task(void)
 
 	SPI_FLASH_SectorErase(0);
 	SPI_FLASH_BufferWrite((uint8_t *)T_Data,0,5);
-	//HAL_Delay(500);
+
 	SPI_FLASH_BufferRead((uint8_t *)R_Data,0,5);
 	uart_printf("data:%d\r\n",R_Data[0]);
 
 }
+
+
+//RS485测试任务
+void APP_RS485_Task(void)
+{
+
+	App_Delay(500);
+	//打印数据
+	RS485_Printf("rs485data:lao tan bie hun!\r\n");
+
+	//接受数据
+}
+

@@ -9,6 +9,7 @@
 "./Component/Driver_Layer/driver_ntc.o"
 "./Component/Driver_Layer/driver_rgb.o"
 "./Component/Driver_Layer/driver_ringbuffer.o"
+"./Component/Driver_Layer/driver_rs485.o"
 "./Component/Driver_Layer/driver_uid.o"
 "./Component/Driver_Layer/driver_w25qxx.o"
 "./Component/Middle_Layer/middle_printf.o"

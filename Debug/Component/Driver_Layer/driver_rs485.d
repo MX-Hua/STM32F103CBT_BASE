@@ -1,8 +1,8 @@
-Component/APP_Layer/app_user_task.o: \
- ../Component/APP_Layer/app_user_task.c \
- ../Component/APP_Layer/app_user_task.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_led.h \
- ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
+Component/Driver_Layer/driver_rs485.o: \
+ ../Component/Driver_Layer/driver_rs485.c \
+ ../Component/Driver_Layer/driver_rs485.h \
+ ../Component/Driver_Layer/driver_delay.h ../Core/Inc/main.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h \
@@ -33,23 +33,9 @@ Component/APP_Layer/app_user_task.o: \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Middle_Layer/middle_printf.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_delay.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_ntc.h \
- ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/dma.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_adc_temperature.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_eeprom.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_rgb.h \
- ../Core/Inc/tim.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_uid.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_crc.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_iic.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_delay.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_w25qxx.h \
- E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_rs485.h \
- ../Core/Inc/usart.h ../Core/Inc/iwdg.h
-../Component/APP_Layer/app_user_task.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_led.h:
+ ../Core/Inc/usart.h ../Core/Inc/main.h
+../Component/Driver_Layer/driver_rs485.h:
+../Component/Driver_Layer/driver_delay.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -82,21 +68,5 @@ E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_led.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Middle_Layer/middle_printf.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_delay.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_ntc.h:
-../Core/Inc/adc.h:
-../Core/Inc/main.h:
-../Core/Inc/dma.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_adc_temperature.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_eeprom.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_rgb.h:
-../Core/Inc/tim.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_uid.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_crc.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_iic.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_delay.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_w25qxx.h:
-E:/STM32/F103CBT6Project/STM32F103CBT6_LED/Component/Driver_Layer/driver_rs485.h:
 ../Core/Inc/usart.h:
-../Core/Inc/iwdg.h:
+../Core/Inc/main.h:

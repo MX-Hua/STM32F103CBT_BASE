@@ -1,5 +1,0 @@
-../Component/Driver_Layer/driver_crc.c:22:6:Driver_CRC8_InitTable	5
-../Component/Driver_Layer/driver_crc.c:45:9:Driver_CRC8_Calculate	4
-../Component/Driver_Layer/driver_crc.c:73:9:Driver_CRC8_CalculateFast	3
-../Component/Driver_Layer/driver_crc.c:131:10:Driver_CRC16_Modbus_Table_Fast	2
-../Component/Driver_Layer/driver_crc.c:141:10:Driver_CRC16_Modbus_Calculate	4

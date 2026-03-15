@@ -1,0 +1,19 @@
+
+
+#忽略整个文件夹
+
+build/
+Debug/
+
+
+# 忽略特定类型的文件
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+
+
+# 忽略 IDE 配置文件（例如 Keil、STM32CubeIDE 等）
+*.swp
+*.swo

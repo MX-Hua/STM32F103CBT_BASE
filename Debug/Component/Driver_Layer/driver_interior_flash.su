@@ -1,4 +1,0 @@
-../Component/Driver_Layer/driver_interior_flash.c:24:6:Driver_Read_Flash_Word	32	static
-../Component/Driver_Layer/driver_interior_flash.c:47:19:Driver_Flash_Write_Safe_Word	64	static,ignoring_inline_asm
-../Component/Driver_Layer/driver_interior_flash.c:94:6:Driver_write_flash_HalfWord	56	static,ignoring_inline_asm
-../Component/Driver_Layer/driver_interior_flash.c:119:6:Driver_read_flash_HalfWord	32	static

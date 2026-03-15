@@ -1,7 +1,0 @@
-../Component/Driver_Layer/driver_ntc.c:42:6:NTC_Init	5
-../Component/Driver_Layer/driver_ntc.c:75:10:NTC_ReadRawADC	3
-../Component/Driver_Layer/driver_ntc.c:107:7:NTC_GetVoltage	2
-../Component/Driver_Layer/driver_ntc.c:124:7:NTC_GetResistance	3
-../Component/Driver_Layer/driver_ntc.c:160:7:NTC_CalculateTemperature	2
-../Component/Driver_Layer/driver_ntc.c:195:14:NTC_CalculateByLookup	6
-../Component/Driver_Layer/driver_ntc.c:231:7:NTC_ReadTemperature	1

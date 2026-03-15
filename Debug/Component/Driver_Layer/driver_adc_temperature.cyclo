@@ -1,2 +1,0 @@
-../Component/Driver_Layer/driver_adc_temperature.c:16:6:Driver_ADC_Temperature_Init	1
-../Component/Driver_Layer/driver_adc_temperature.c:23:7:Driver_ADC_Temperature_GetValue	1

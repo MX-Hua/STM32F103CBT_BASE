@@ -1,2 +1,0 @@
-../Component/Driver_Layer/driver_led.c:14:6:Led_Init	32	static
-../Component/Driver_Layer/driver_led.c:31:6:Led_Toggle	8	static
